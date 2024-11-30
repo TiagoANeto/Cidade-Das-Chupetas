@@ -33,17 +33,22 @@ public class PlayerMovement : MonoBehaviour
         
         if(movement.magnitude > 0.1f)
         {
-            animator.SetBool("isRunning", true);
+            animator.SetFloat("inputX", movement.x);
         }
         else
         {
-            animator.SetBool("isRunning", false);
+            animator.SetFloat("inputX", movement.x);
         }
     }
 
     private void Gravity()
     {
         
+    }
+
+    private void Flip()
+    {
+
     }
 
     public void Move(InputAction.CallbackContext context)
