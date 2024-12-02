@@ -8,10 +8,11 @@ public class MenuController : MonoBehaviour
     public string nomeDaCena;
     public GameObject panelMenuInicial;
     public GameObject panelCredits;
+    public GameObject panelSettings;
 
    public void ButtonPlay()
     {
-        SceneManager.LoadScene("LevelDesign");
+        SceneManager.LoadScene(nomeDaCena);
     }
 
     public void ButtonOpenCredits()
@@ -23,6 +24,18 @@ public class MenuController : MonoBehaviour
     public void ButtonCloseCredits()
     {
         panelCredits.SetActive(false);
+        panelMenuInicial.SetActive(true);
+    }
+
+    public void ButtonOpenSettings()
+    {
+        panelMenuInicial.SetActive(false);
+        panelSettings.SetActive(true);
+    }
+
+    public void ButtonCloseSettings()
+    {
+        panelSettings.SetActive(false);
         panelMenuInicial.SetActive(true);
     }
 

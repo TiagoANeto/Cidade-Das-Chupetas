@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.contacts[0].normal.y > 0.5f)
+        if (collision.contacts[0].normal.y > 0.1f)
         {
             isGrounded = true;
         }
