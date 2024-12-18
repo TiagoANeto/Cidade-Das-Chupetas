@@ -174,8 +174,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0071856976, y: -0.068261385}
-  m_Size: {x: 0.9425168, y: 1.0071855}
+  m_Offset: {x: 0.008037567, y: -0.115817785}
+  m_Size: {x: 0.60762787, y: 0.8359628}
   m_Direction: 0
 --- !u!114 &6534190163556453051
 MonoBehaviour:
@@ -193,7 +193,7 @@ MonoBehaviour:
   movementInput: {x: 0, y: 0}
   data: {fileID: 11400000, guid: 959c34bb969d0c14295ea55fd82cf358, type: 2}
   _groundCheckPoint: {fileID: 4952875342388019395}
-  _groundCheckSize: 0.4
+  _groundCheckSize: 0.25
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
