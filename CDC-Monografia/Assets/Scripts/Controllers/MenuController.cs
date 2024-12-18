@@ -6,7 +6,7 @@ public class MenuController : MonoBehaviour
 {
     
     public string nomeDaCena;
-    public GameObject panelMenuInicial;
+    public GameObject panelMenu;
     public GameObject panelCredits;
     public GameObject panelSettings;
 
@@ -17,26 +17,26 @@ public class MenuController : MonoBehaviour
 
     public void ButtonOpenCredits()
     {
-        panelMenuInicial.SetActive(false);
+        panelMenu.SetActive(false);
         panelCredits.SetActive(true);
     }
 
     public void ButtonCloseCredits()
     {
         panelCredits.SetActive(false);
-        panelMenuInicial.SetActive(true);
+        panelMenu.SetActive(true);
     }
 
     public void ButtonOpenSettings()
     {
-        panelMenuInicial.SetActive(false);
+        panelMenu.SetActive(false);
         panelSettings.SetActive(true);
     }
 
     public void ButtonCloseSettings()
     {
         panelSettings.SetActive(false);
-        panelMenuInicial.SetActive(true);
+        panelMenu.SetActive(true);
     }
 
     public void ButtonQuit()
