@@ -2,7 +2,7 @@
     "name": "InputMap",
     "maps": [
         {
-            "name": "PlayerActions",
+            "name": "Player",
             "id": "c907c1fc-8274-49b9-8767-be8e4be92b16",
             "actions": [
                 {
@@ -88,6 +88,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "616b029d-1b23-4c41-b52d-c36624ab3805",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "4dcc946d-5718-4ea1-bc44-38d060fc8285",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ee728c2a-50dd-4bde-9d25-38c50026ba1a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

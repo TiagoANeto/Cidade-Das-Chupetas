@@ -8,9 +8,9 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Declaration
     [SerializeField] private float speed;
+    public InputRef inputRef;
     private Vector3 movement;
-    public Vector2 movementInput;
-    InputMap inputMap;
+    public Vector2 movementDirection;
     public PlayerData data;
     private Rigidbody2D rb;
     private Animator animator;
@@ -30,11 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        inputMap = new InputMap();
-        inputMap.PlayerActions.Move.performed += Move;
-        inputMap.PlayerActions.Move.canceled += Move;
-        inputMap.PlayerActions.Jump.performed += Jump;
-        inputMap.PlayerActions.Jump.canceled += Jump;
+        inputRef.MoveEvent += Move;
+        inputRef.JumpEvent += Jump;
 
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -69,19 +66,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void Movement()
     {
-        transform.Translate(movement * speed * Time.deltaTime);
-        animator.SetFloat("inputX", movement.x);
+        if(movementDirection.magnitude > 0.1f)
+        {
+            transform.Translate(movement * speed * Time.deltaTime);
+            animator.SetFloat("inputX", movement.x);
+        }
+        else
+        {
+            animator.SetFloat("inputX", 0);
+        }
     }
 
-    private void Move(InputAction.CallbackContext context)
+    private void Move(Vector2 dir)
     {
-        movementInput = context.ReadValue<Vector2>();
-        movement = new Vector3(movementInput.x, 0, 0);
+        movementDirection = dir;
+        movement = new Vector3(movementDirection.x, 0, 0);
     }
 
-    private void Jump(InputAction.CallbackContext context)
+    private void Jump()
     {
-        if (context.performed && (isGrounded || LastOnGroundTime > 0f) && !isJumping)
+        if ((isGrounded || LastOnGroundTime > 0f) && !isJumping)
         {
             float force = data.jumpForce;
             rb.velocity = new Vector2(rb.velocity.x, 0); // Reseta a velocidade Y antes do pulo
@@ -116,15 +120,5 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_groundCheckPoint.position, _groundCheckSize);
-    }
-
-    void OnEnable()
-    {
-        inputMap.PlayerActions.Enable();
-    }
-
-    void OnDisable()
-    {
-        inputMap.PlayerActions.Disable();
     }
 }

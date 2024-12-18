@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 4c8bfd76a6e6fad4eabe38fe6f55e7b7, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -110,9 +110,17 @@ MonoBehaviour:
         m_CallState: 1
     m_ActionId: 6ddef9d2-6e5c-4566-93df-ac379f8dde8f
     m_ActionName: PlayerActions/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 040fca9b-429b-48af-bc58-44ff1492e6e5
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4dcc946d-5718-4ea1-bc44-38d060fc8285
+    m_ActionName: UI/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerActions
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!50 &2108097558268507454
@@ -190,7 +198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  movementInput: {x: 0, y: 0}
+  inputRef: {fileID: 11400000, guid: 8d5caf8a8eeb73640a1e53cd20e8bfdd, type: 2}
+  movementDirection: {x: 0, y: 0}
   data: {fileID: 11400000, guid: 959c34bb969d0c14295ea55fd82cf358, type: 2}
   _groundCheckPoint: {fileID: 4952875342388019395}
   _groundCheckSize: 0.25
