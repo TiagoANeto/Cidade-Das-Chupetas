@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SliderController : MonoBehaviour
 {
-    AudioSource audioSource;    
+    public AudioSource audioSource;    
     
     void Awake()
     {
