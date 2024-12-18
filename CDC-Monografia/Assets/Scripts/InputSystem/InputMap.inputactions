@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "be3470c1-ddf2-496e-b1f1-f1be05172dd1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -90,27 +99,10 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "UI",
-            "id": "616b029d-1b23-4c41-b52d-c36624ab3805",
-            "actions": [
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "4dcc946d-5718-4ea1-bc44-38d060fc8285",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "ee728c2a-50dd-4bde-9d25-38c50026ba1a",
+                    "id": "f213e07c-bff0-4b11-bd7e-aa999810fd92",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",

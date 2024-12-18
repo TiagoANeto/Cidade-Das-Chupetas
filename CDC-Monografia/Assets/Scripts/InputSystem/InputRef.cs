@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "InputRef")]
-public class InputRef : ScriptableObject, InputMap.IPlayerActions, InputMap.IUIActions //Interfaces dos Action Maps
+public class InputRef : ScriptableObject, InputMap.IPlayerActions //Interfaces dos Action Maps
 {
     private InputMap inputMap; //Referencia da classe C# inputsystem
 
@@ -17,7 +17,6 @@ public class InputRef : ScriptableObject, InputMap.IPlayerActions, InputMap.IUIA
             inputMap = new InputMap();
 
             inputMap.Player.SetCallbacks(this);
-            inputMap.UI.SetCallbacks(this);
 
             SetGameplay();
         }
@@ -27,14 +26,6 @@ public class InputRef : ScriptableObject, InputMap.IPlayerActions, InputMap.IUIA
     public void SetGameplay()
     {
         inputMap.Player.Enable();
-        inputMap.UI.Disable();
-    }
-
-    //Ativação do Action Map de UIs, pauseGame e navegação de interfaces 
-    public void SetUI()
-    {
-        inputMap.UI.Enable();
-        inputMap.Player.Disable();
     }
 
     //Declaração dos Eventos que seram feitas as atribuições das inputs
@@ -60,7 +51,6 @@ public class InputRef : ScriptableObject, InputMap.IPlayerActions, InputMap.IUIA
         if(context.performed)
         {
             PauseEvent.Invoke();
-            SetUI();
         }
     }
 
