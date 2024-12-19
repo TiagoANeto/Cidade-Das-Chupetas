@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 movement;
     public Vector2 movementDirection;
     public PlayerData data;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Animator animator;
 
     private bool isGrounded;
@@ -120,5 +120,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_groundCheckPoint.position, _groundCheckSize);
+    }
+
+    private void OnDisable(){ //desinscricao dos eventos necessarios para ser recarregado na cena - Ana :P
+        inputRef.JumpEvent -= Jump;
     }
 }
