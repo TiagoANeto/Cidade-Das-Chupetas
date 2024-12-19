@@ -114,7 +114,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 2944798984500651772}
   - component: {fileID: 9083019724334013012}
   - component: {fileID: 4161341959551707170}
+  - component: {fileID: 8048562408679976051}
   m_Layer: 0
   m_Name: bubble
   m_TagString: Untagged
@@ -236,7 +237,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -254,3 +255,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae94cdb87497bd43839f716fed83a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 8048562408679976051}
+--- !u!95 &8048562408679976051
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534049130249833294}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45c64a940204cc0429f857f4f7a007db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

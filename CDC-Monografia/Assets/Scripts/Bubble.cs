@@ -6,7 +6,11 @@ public class Bubble : MonoBehaviour
 {
     //bubble bubble bubble gum - haerin, newjeans
 
-    //coleta as bolhas
-    //anim de coletado
-    //confete colorido?
+    public Animator anim;
+
+    void OnTriggerEnter2D(Collider2D other){
+        anim.SetTrigger("Collected");
+        anim.SetTrigger("Explode");
+        Destroy(gameObject, 0.3f);
+    }
 }
