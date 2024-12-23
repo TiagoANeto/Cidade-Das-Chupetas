@@ -37,9 +37,11 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+
     void Start()
     {
         SetGravityScale(data.gravityScale);
+
     }
 
     void Update()
@@ -47,21 +49,35 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         GroundCheck();
 
-        if (isGrounded && rb.velocity.y <= 0)
+         //Verifica estado de aterrissagem do boneco
+        if(isGrounded && rb.velocity.y <= 0)
         {
-            isJumping = false;
+            isJumping = false; 
+            isFalling = false; 
+            animator.SetBool("isJumpingAnim", false);
+        }
+        else if(!isGrounded && rb.velocity.y < 0)
+        {
+            isFalling = true;
         }
 
-        if (!isGrounded && rb.velocity.y < 0)
+        if(!isGrounded && rb.velocity.y > 0)
         {
-            rb.gravityScale = data.gravityScale * data.fallGravityMult; // Aumenta gravidade durante a queda
+        animator.SetBool("isJumpingAnim", true);
+        }   
+
+        //Ajustar gravidade para queda
+        if(!isGrounded && rb.velocity.y < 0)
+        {
+            rb.gravityScale = data.gravityScale * data.fallGravityMult; 
         }
         else
         {
-            rb.gravityScale = data.gravityScale; 
+            rb.gravityScale = data.gravityScale;
         }
 
         LastOnGroundTime -= Time.deltaTime;
+        animator.SetFloat("inputY", rb.velocity.y);
     }
 
     private void Movement()
@@ -88,26 +104,27 @@ public class PlayerMovement : MonoBehaviour
         if ((isGrounded || LastOnGroundTime > 0f) && !isJumping)
         {
             float force = data.jumpForce;
-            rb.velocity = new Vector2(rb.velocity.x, 0); // Reseta a velocidade Y antes do pulo
+            rb.velocity = new Vector2(rb.velocity.x, 0); 
             rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
             isJumping = true;
-            LastOnGroundTime = 0f; 
+            LastOnGroundTime = 0f;
+            animator.SetBool("isJumpingAnim", isJumping);
+        }
+        else
+        {   
+            animator.SetBool("isJumpingAnim", !isJumping);
         }
     }
 
     private void GroundCheck()
     {
-    Collider2D groundHit = Physics2D.OverlapCircle(_groundCheckPoint.position, _groundCheckSize, groundLayer);
+        Collider2D groundHit = Physics2D.OverlapCircle(_groundCheckPoint.position, _groundCheckSize, groundLayer);
 
-        if (groundHit != null)
+        isGrounded = groundHit != null;
+
+        if (isGrounded)
         {
-            Debug.Log("Ground Detected: " + groundHit.gameObject.name);
-            isGrounded = true;
-        }
-        else
-        {
-            Debug.Log("No Ground Detected!");
-            isGrounded = false;
+            LastOnGroundTime = 0.2f; 
         }
     }
 

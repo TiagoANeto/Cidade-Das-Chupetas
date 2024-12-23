@@ -732,7 +732,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeDaCena: 
-  panelMenu: {fileID: 0}
   panelCredits: {fileID: 0}
   panelSettings: {fileID: 2066876450}
 --- !u!114 &1070688215
@@ -1261,7 +1260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeDaCena: Menu
-  panelMenu: {fileID: 0}
   panelCredits: {fileID: 0}
   panelSettings: {fileID: 0}
 --- !u!1 &1571068273
