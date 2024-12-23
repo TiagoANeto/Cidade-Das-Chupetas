@@ -15,28 +15,28 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(nomeDaCena);
     }
 
-    public void ButtonOpenCredits()
+    public void ButtonCredits()
     {
-        panelMenu.SetActive(false);
-        panelCredits.SetActive(true);
+        if(panelCredits.activeInHierarchy == false)
+        {
+            panelCredits.SetActive(true);
+        }
+        else
+        {
+            panelCredits.SetActive(false);
+        }
     }
 
-    public void ButtonCloseCredits()
+    public void ButtonSettings()
     {
-        panelCredits.SetActive(false);
-        panelMenu.SetActive(true);
-    }
-
-    public void ButtonOpenSettings()
-    {
-        panelMenu.SetActive(false);
-        panelSettings.SetActive(true);
-    }
-
-    public void ButtonCloseSettings()
-    {
-        panelSettings.SetActive(false);
-        panelMenu.SetActive(true);
+        if(panelSettings.activeInHierarchy == false)
+        {
+            panelSettings.SetActive(true);
+        }
+        else
+        {
+            panelSettings.SetActive(false);
+        }
     }
 
     public void ButtonQuit()
