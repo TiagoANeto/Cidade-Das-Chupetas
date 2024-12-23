@@ -4,13 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
-    
     public string nomeDaCena;
-    public GameObject panelMenu;
     public GameObject panelCredits;
     public GameObject panelSettings;
 
-   public void ButtonPlay()
+    public void ButtonPlay()
     {
         SceneManager.LoadScene(nomeDaCena);
     }
