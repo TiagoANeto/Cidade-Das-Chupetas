@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeDaCena: LevelDesign
-  panelMenu: {fileID: 0}
+  panelMenu: {fileID: 2130521131}
   panelCredits: {fileID: 1935569720}
   panelSettings: {fileID: 1621541974}
 --- !u!4 &447436968
