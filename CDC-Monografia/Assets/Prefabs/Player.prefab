@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4707180256228748931}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,6 +201,7 @@ MonoBehaviour:
   inputRef: {fileID: 11400000, guid: 8d5caf8a8eeb73640a1e53cd20e8bfdd, type: 2}
   movementDirection: {x: 0, y: 0}
   data: {fileID: 11400000, guid: 959c34bb969d0c14295ea55fd82cf358, type: 2}
+  rb: {fileID: 0}
   _groundCheckPoint: {fileID: 4952875342388019395}
   _groundCheckSize: 0.25
   groundLayer:
