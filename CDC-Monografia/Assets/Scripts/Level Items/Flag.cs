@@ -6,6 +6,11 @@ public class Flag : MonoBehaviour
 {
     public Animator anim;
     void OnTriggerEnter2D(Collider2D other){
-        anim.SetTrigger("FlagUp");
+        
+        if(other.CompareTag("Player"))
+        {
+            anim.SetTrigger("FlagUp");
+            GameManager.gameManager.NextLevel();
+        }
     }
 }

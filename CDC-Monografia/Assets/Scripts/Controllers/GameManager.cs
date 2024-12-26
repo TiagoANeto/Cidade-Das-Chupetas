@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager gameManager;
+    public static GameManager gameManager;
     public InputRef inputRef;
     public GameObject panelPause;
+    public Animator animator;
 
     void Awake()
     {
@@ -36,5 +38,18 @@ public class GameManager : MonoBehaviour
     private void Pause()
     {
         panelPause.SetActive(true);
+    }
+
+    public void NextLevel()
+    {
+        StartCoroutine(LoadLevelScene());
+    }
+
+    IEnumerator LoadLevelScene()
+    {
+        animator.SetTrigger("EndLevel");
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        animator.SetTrigger("StartLevel");
     }
 }
