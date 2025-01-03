@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
-    public string nomeDaCena;
     public GameObject panelCredits;
     public GameObject panelSettings;
 
     public void ButtonPlay()
     {
-        SceneManager.LoadScene(nomeDaCena);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ButtonCredits()
