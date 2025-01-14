@@ -7135,6 +7135,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5333893816774225231, guid: 6534e9a32b1a03c4bb7ff53af9eb7ac1, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6223482697961796436, guid: 6534e9a32b1a03c4bb7ff53af9eb7ac1, type: 3}
       propertyPath: m_Name
       value: Thorns

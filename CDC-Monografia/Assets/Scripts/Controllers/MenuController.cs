@@ -6,6 +6,7 @@ public class MenuController : MonoBehaviour
 {
     public GameObject panelCredits;
     public GameObject panelSettings;
+    public AudioSource audioSource;
 
     public void ButtonPlay()
     {
@@ -39,6 +40,10 @@ public class MenuController : MonoBehaviour
     public void ButtonQuit()
     {
         Application.Quit();
+    }
+    
+    public void AudioButton(){
+        audioSource.Play();
     }
 }
 
