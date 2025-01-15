@@ -17,26 +17,38 @@ public class GameManager : MonoBehaviour
         InicializeGameManager();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode){
-
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         scene = SceneManager.GetActiveScene();
 
-        if(scene.name != "Menu" && scene.name != "Vitoria"){
+        Debug.Log($"Cena atual: {scene.name}, PanelPause: {(panelPause != null ? "Encontrado" : "Não encontrado")}");
+
+        if (scene.name != "Menu" && scene.name != "Vitoria")
+        {
             panelPause = GameObject.Find("/Canvas/PauseMenu");
-            animator = GameObject.Find("/Canvas/Transitions").GetComponent<Animator>();
 
-            if(panelPause != null) {panelPause.SetActive(false);}
+            if (panelPause == null)
+            {
+                panelPause = GameObject.FindObjectOfType<Canvas>()?.transform.Find("PauseMenu")?.gameObject;
+            }
 
+            if (panelPause != null)
+            {
+                panelPause.SetActive(false);
+                DontDestroyOnLoad(panelPause); 
+            }
+            else
+            {
+                Debug.LogWarning("PanelPause não foi encontrado! Verifique se o caminho está correto ou se ele existe na cena.");
+            }
         }
-
     }
 
     private void InicializeGameManager()
     {
-        if(gameManager == null)
+        if (gameManager == null)
         {
             gameManager = this;
         }
@@ -54,7 +66,14 @@ public class GameManager : MonoBehaviour
 
     private void Pause()
     {
-        panelPause.SetActive(true);
+        if (panelPause != null)
+        {
+            panelPause.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("PanelPause está nulo! Certifique-se de que ele foi inicializado.");
+        }
     }
 
     public void NextLevel()
@@ -69,5 +88,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         animator.SetTrigger("StartLevel");
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

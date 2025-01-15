@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelCidade.unity
     guid: 6e430d4115cf3b440b1231967cd0d2bb
+  - enabled: 1
+    path: Assets/Scenes/Vitoria.unity
+    guid: 4dd5b11d33354f14c9c6a526024334d0
   m_configObjects: {}
