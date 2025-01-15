@@ -1814,7 +1814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelCredits: {fileID: 0}
   panelSettings: {fileID: 0}
-  panelMonologue: {fileID: 0}
+  panelMonologue: {fileID: 1997480996}
   audioSource: {fileID: 1220414339}
 --- !u!114 &1162669082
 MonoBehaviour:

@@ -15,11 +15,22 @@ public class GameManager : MonoBehaviour
         inputRef.PauseEvent += Pause;
 
         InicializeGameManager();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+
+        panelPause = GameObject.Find("/Canvas/PauseMenu");
+        animator = GameObject.Find("/CanvasTransition/Transitions").GetComponent<Animator>();
+
+        if(panelPause != null) {panelPause.SetActive(false);}
     }
 
     private void InicializeGameManager()
     {
-         if(gameManager == null)
+        if(gameManager == null)
         {
             gameManager = this;
         }
@@ -50,6 +61,7 @@ public class GameManager : MonoBehaviour
         animator.SetTrigger("EndLevel");
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
         animator.SetTrigger("StartLevel");
     }
 }
