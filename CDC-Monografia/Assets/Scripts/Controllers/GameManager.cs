@@ -22,10 +22,16 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode){
 
-        panelPause = GameObject.Find("/Canvas/PauseMenu");
-        animator = GameObject.Find("/CanvasTransition/Transitions").GetComponent<Animator>();
+        scene = SceneManager.GetActiveScene();
 
-        if(panelPause != null) {panelPause.SetActive(false);}
+        if(scene.name != "Menu" && scene.name != "Vitoria"){
+            panelPause = GameObject.Find("/Canvas/PauseMenu");
+            animator = GameObject.Find("/Canvas/Transitions").GetComponent<Animator>();
+
+            if(panelPause != null) {panelPause.SetActive(false);}
+
+        }
+
     }
 
     private void InicializeGameManager()

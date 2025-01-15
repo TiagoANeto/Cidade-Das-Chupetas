@@ -3262,7 +3262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1bc734084d0306a4d9af178bf249cdf3, type: 2}
+  m_Material: {fileID: 2100000, guid: 05c0ee3156d02ff498f50ab571e5d8d8, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3300,7 +3300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51682da55b05aa546a4fc2d63960ef05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1bc734084d0306a4d9af178bf249cdf3, type: 2}
+  material: {fileID: 2100000, guid: 05c0ee3156d02ff498f50ab571e5d8d8, type: 2}
   bgSpeed: 0.03
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
