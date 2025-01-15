@@ -23,7 +23,9 @@ public class GameManager : MonoBehaviour
     {
         scene = SceneManager.GetActiveScene();
 
-        Debug.Log($"Cena atual: {scene.name}, PanelPause: {(panelPause != null ? "Encontrado" : "Não encontrado")}");
+        Debug.Log($"Cena carregada: {scene.name}");
+        Debug.Log($"panelPause: {panelPause != null}");
+        Debug.Log($"animator: {animator != null}");
 
         if (scene.name != "Menu" && scene.name != "Vitoria")
         {
@@ -37,11 +39,20 @@ public class GameManager : MonoBehaviour
             if (panelPause != null)
             {
                 panelPause.SetActive(false);
-                DontDestroyOnLoad(panelPause); 
+                DontDestroyOnLoad(panelPause);
             }
             else
             {
                 Debug.LogWarning("PanelPause não foi encontrado! Verifique se o caminho está correto ou se ele existe na cena.");
+            }
+
+            animator = GameObject.Find("/Canvas/Transitions")?.GetComponent<Animator>();
+
+            // Verificação para garantir que o animator não seja null
+            if (animator == null)
+            {
+                Debug.LogError("Animator não foi encontrado! Verifique se o objeto /Canvas/Transitions existe e tem um Animator.");
+                return;
             }
         }
     }
@@ -83,6 +94,12 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadLevelScene()
     {
+        if (animator == null)
+        {
+            Debug.LogError("Animator não foi encontrado! O carregamento da cena não pode continuar.");
+            yield break;  // Interrompe a execução do método se o animator for nulo
+        }
+
         animator.SetTrigger("EndLevel");
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
